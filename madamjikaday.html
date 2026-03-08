@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women's Day</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--gold:#c5a028;
+--cream:#fdfaf0;
+--dark:#1d1d1d;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:var(--cream);
+color:var(--dark);
+}
+
+/* INTRO */
+
+#intro{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+background:white;
+z-index:10;
+}
+
+.fade{
+animation:fade 8s forwards;
+}
+
+@keyframes fade{
+
+0%{opacity:0; transform:translateY(40px); filter:blur(15px);}
+30%{opacity:1; transform:translateY(0); filter:blur(0);}
+70%{opacity:1;}
+100%{opacity:0; transform:translateY(-40px); filter:blur(10px);}
+
+}
+
+/* PAGES */
+
+.page{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+transition:1s;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+transform:scale(.9);
+filter:blur(15px);
+}
+
+/* TEXT */
+
+.title{
+font-family:Cinzel;
+font-size:34px;
+margin-bottom:20px;
+color:var(--gold);
+}
+
+.text{
+font-size:16px;
+line-height:1.7;
+max-width:320px;
+letter-spacing:.3px;
+}
+
+.text p{
+margin-bottom:14px;
+}
+
+/* LETTER PAGE */
+
+.letter-page{
+justify-content:flex-start;
+padding-top:80px;
+}
+
+.letter{
+max-height:50vh;
+overflow-y:auto;
+padding-right:10px;
+}
+
+.letter::-webkit-scrollbar{
+width:4px;
+}
+
+.letter::-webkit-scrollbar-thumb{
+background:#c5a028;
+border-radius:10px;
+}
+
+/* BUTTON */
+
+button{
+margin-top:25px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:var(--gold);
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+/* VIDEO */
+
+.video-box{
+width:85vw;
+max-width:320px;
+height:560px;
+border-radius:20px;
+overflow:hidden;
+background:black;
+}
+
+video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.controls{
+display:flex;
+gap:15px;
+margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<div id="intro">
+
+<h1 class="fade title">Happy Women's Day</h1>
+<p class="fade">Celebrating strength, grace and brilliance</p>
+
+</div>
+
+<!-- PAGE 1 -->
+
+<div class="page hidden" id="p1">
+
+<h2 class="title">Women</h2>
+
+<div class="text">
+
+<p>You build homes, shape societies, lead revolutions and nurture dreams.</p>
+
+<p>You are creators, leaders, warriors and visionaries. Aaj jyada nahi bola 💗 sachi kam hi bola ❤️‍🩹</p>
+
+<p>The world does not progress despite women.</p>
+
+<p>It progresses because of them. Aur hamari presence madam 🤧 wo bhi to aap deviyon se hai 💗</p>
+
+<p>Happy Women's Day 🍯</p>
+
+</div>
+
+<button onclick="next()">Continue</button>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page hidden" id="p2">
+
+<h2 class="title">Equality</h2>
+
+<div class="text">
+
+<p>When we talk about equality you all are not just equal to us.</p>
+
+<p>You all are equally capable, equally intelligent and equally powerful.</p>
+
+<p>Every dream you chase, every barrier you break makes the world stronger.</p>
+
+<p>Keep making the world stronger madam 💗</p>
+
+</div>
+
+<button onclick="next()">Continue</button>
+
+</div>
+
+<!-- PAGE 3 LETTER -->
+
+<div class="page hidden letter-page" id="p3">
+
+<h2 class="title">Strength</h2>
+
+<div class="text letter">
+
+<p>People often say men are the stronger ones.</p>
+
+<p>But strength is not just about muscles madam ji.😤</p>
+
+<p>Women carry responsibilities, expectations and emotions yet they keep moving forward.</p>
+
+<p>Every month they go through the pain of periods something we never experience.</p>
+
+<p>So yes you suffer more you feel more and honestly you all are stronger than us 😭</p>
+
+<p>And still you study, work, smile and take care of everyone 💗 despite going through pain that we cannot even imagine.</p>
+
+<p>That is not weakness. That is strength.</p>
+
+<p>Women are not weaker. Actually you all are much much stronger than us ❤️‍🩹</p>
+
+<p>In many ways you are even stronger.</p>
+
+<p>Happy Women's Day 💗 Ik bahut late ho gaya wish karne me maff karna 😭</p>
+
+</div>
+
+<button onclick="openVideoPage()">Continue</button>
+
+</div>
+
+<!-- PAGE 4 VIDEO -->
+
+<div class="page hidden" id="p4">
+
+<div class="video-box">
+
+<video id="vid" src="video1.mp4"></video>
+
+</div>
+
+<div class="controls">
+
+<button onclick="prev()">◀</button>
+<button onclick="nextVid()">▶</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 5 -->
+
+<div class="page hidden" id="p5">
+
+<h2 class="title">For you 🍯</h2>
+
+<div class="text">
+
+<p>On this Women's Day I just want to say never underestimate what you are capable of aap kuch bhi kar sakte </p>
+
+<p>And it is not about celebrating who you are on a calendar event. Every day is special and every day is as beautiful as it can be. It is your presence that matters 💗</p>
+
+<p>Happy Women's Day 💗 🍯</p>
+
+<p>Ek shayari soch raha yaar 😅</p>
+
+<p>dard sehti ho batati nahi 🥰  
+har pal muskurati ho ghabrati nahi  
+har baat pe gussa ho jati 🤧  
+par meko manati nahi 😂😂</p>
+<p> Happy Women's Day Mam💗 Muskura do 😅 please</p>
+
+</div>
+
+</div>
+
+<script>
+
+setTimeout(()=>{
+
+document.getElementById("intro").style.display="none"
+document.getElementById("p1").classList.remove("hidden")
+
+},4000)
+
+let page=1
+
+function next(){
+
+document.getElementById("p"+page).classList.add("hidden")
+page++
+document.getElementById("p"+page).classList.remove("hidden")
+
+}
+
+function openVideoPage(){
+
+document.getElementById("p3").classList.add("hidden")
+page=4
+document.getElementById("p4").classList.remove("hidden")
+
+v.play()
+
+}
+
+let videos=[
+"video1.mp4",
+"video2.mp4",
+"video3.mp4",
+"video4.mp4",
+"video5.mp4"
+]
+
+let i=0
+let v=document.getElementById("vid")
+
+function nextVid(){
+
+i++
+
+if(i>=videos.length){
+
+document.getElementById("p4").classList.add("hidden")
+document.getElementById("p5").classList.remove("hidden")
+return
+
+}
+
+v.src=videos[i]
+v.play()
+
+}
+
+function prev(){
+
+i=(i-1+videos.length)%videos.length
+v.src=videos[i]
+v.play()
+
+}
+
+</script>
+
+</body>
+</html>
